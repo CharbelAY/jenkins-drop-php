@@ -10,7 +10,7 @@ node {
 }
 
 pipeline {
-    agent { docker { image 'basicphpapp' } }
+    agent { docker { image 'basicphp' } }
     stages {
         stage('build') {
             steps {
