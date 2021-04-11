@@ -1,0 +1,12 @@
+{
+    "name": "macuser/basicphp",
+    "autoload": {
+        "psr-4": {
+            "app\\":"src/app"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
