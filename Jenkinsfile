@@ -14,15 +14,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'php --version'
-            }
-            steps{
-                sh './vendor/bin/phpunit unit_test/CounterTest.php'
+                sh 'pwd'
             }
         }
         stage('test'){
             steps{
-                sh 'phpunit unit_test/CounterTest.php'
+                sh './vendor/bin/phpunit unit_test/CounterTest.php'
             }
         }
     }
