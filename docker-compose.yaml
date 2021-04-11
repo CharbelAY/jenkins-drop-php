@@ -1,5 +1,6 @@
 services:
   server:
+    image: basicphpapp
     container_name: basicphp
     build:
       context: .

@@ -8,3 +8,14 @@ node {
         customImage.push()
     }
 }
+
+pipeline {
+    agent { docker { image 'basicphpapp' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'php --version'
+            }
+        }
+    }
+}
