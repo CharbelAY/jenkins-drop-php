@@ -10,7 +10,7 @@ node {
 }
 
 pipeline {
-    agent { docker { image 'basicphp' } }
+    agent { docker { image 'php:7.4' } }
     stages {
         stage('build') {
             steps {
