@@ -19,7 +19,7 @@ pipeline {
         }
         stage('test'){
             steps{
-                sh './vendor/bin/phpunit unit_test/CounterTest.php'
+                sh 'vendor/bin/phpunit unit_test/CounterTest.php'
             }
         }
     }
