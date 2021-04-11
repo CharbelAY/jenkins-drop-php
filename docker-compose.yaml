@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - .:/src/app
+#    volumes:
+#      - .:/src/app
     ports:
       - 8081:8080
