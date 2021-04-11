@@ -14,7 +14,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'php --version'
+                sh 'php --version',
+                sh './vendor/bin/phpunit unit_test/CounterTest.php'
             }
         }
         stage('test'){
