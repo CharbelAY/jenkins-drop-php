@@ -11,7 +11,7 @@ node {
     stage('test'){
 //         def testContainer = docker.image('php:7.4')
 //         testContainer.pull()
-        def testContainer = docker.build('testContainer','.')
+        def testContainer = docker.build('testcontainer','.')
         testContainer.inside{
             sh 'composer install'
             sh './vendor/bin/phpunit unit_test/CounterTest.php'
