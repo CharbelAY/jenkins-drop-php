@@ -18,19 +18,19 @@ node {
         }
     }
 
-//     stage('docker build/push'){
-//         docker.withRegistry('https://registry.hub.docker.com', '9e7d590c-1680-4a8a-b2c7-8c6befa97415') {
-//
-//         def customImage = docker.build("charbelay/jenkins-drop-php:${commit_id}",'.')
-//
-//         customImage.push()
-//         }
-//     }
+    stage('docker build/push'){
+        docker.withRegistry('https://registry.hub.docker.com', '9e7d590c-1680-4a8a-b2c7-8c6befa97415') {
+
+        def customImage = docker.build("charbelay/jenkins-drop-php:${commit_id}",'.')
+
+        customImage.push()
+        }
+    }
 
     stage("publish"){
         sshagent(credentials:['86025583-ab83-4220-9b5f-a2ddee2faf9d']){
         sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 13.48.42.8 uname -a'
-        sh 'ssh -o StrictHostKeyChecking=no ec2-user@ec2-13-48-42-8.eu-north-1.compute.amazonaws.com "bash test.sh && docker pull charbelay/jenkins-drop-php:latest && docker run -p 8081:8080 charbelay/jenkins-drop-php:latest"'
+        sh 'ssh -o StrictHostKeyChecking=no ec2-user@ec2-13-48-42-8.eu-north-1.compute.amazonaws.com "bash test.sh && sudo docker pull charbelay/jenkins-drop-php:latest && sudo docker run -p 8081:8080 charbelay/jenkins-drop-php:latest"'
         }
     }
 
