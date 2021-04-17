@@ -30,7 +30,7 @@ node {
     stage("publish"){
         sshagent(credentials:['86025583-ab83-4220-9b5f-a2ddee2faf9d']){
         sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 13.48.42.8 uname -a'
-        sh 'ssh -o StrictHostKeyChecking=no ec2-user@ec2-13-48-42-8.eu-north-1.compute.amazonaws.com "bash test.sh && pwd"'
+        sh 'ssh -o StrictHostKeyChecking=no ec2-user@ec2-13-48-42-8.eu-north-1.compute.amazonaws.com "bash test.sh && docker pull charbelay/jenkins-drop-php:latest && docker run -p 8081:8080 charbelay/jenkins-drop-php:latest"'
         }
     }
 
