@@ -30,7 +30,7 @@ node {
     stage("publish"){
         sshagent(credentials:['86025583-ab83-4220-9b5f-a2ddee2faf9d']){
         sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 172.31.35.104 uname -a'
-        sh 'bash test.sh'
+        sh 'pwd'
         }
     }
 
