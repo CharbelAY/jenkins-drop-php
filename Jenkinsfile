@@ -1,5 +1,3 @@
-node {
-
     def commit_id
 
     def remote = [name: 'test', host: 'test.test.com', user: 'rao', password: 'password123', allowAnyHosts: true]
@@ -36,7 +34,5 @@ node {
         bash test.sh
         }
     }
-
-}
 
 }
