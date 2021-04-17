@@ -2,6 +2,9 @@ node {
 
     def commit_id
 
+    def remote = [name: 'test', host: 'test.test.com', user: 'rao', password: 'password123', allowAnyHosts: true]
+
+    pipeline {
     stage('Preperation'){
         checkout scm
         sh "git rev-parse --short HEAD > .git/commit-id"
@@ -24,6 +27,13 @@ node {
         def customImage = docker.build("charbelay/jenkins-drop-php:${commit_id}",'.')
 
         customImage.push()
+        }
+    }
+
+    stage("publish"){
+        sshagent(credentials:['86025583-ab83-4220-9b5f-a2ddee2faf9d']){
+        sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 172.31.35.104 uname -a'
+        bash test.sh
         }
     }
 
