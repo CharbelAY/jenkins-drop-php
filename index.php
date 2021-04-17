@@ -1,3 +1,3 @@
 <?php
 
-echo "Hello world testing v2";
+echo "CI/CD working fine !";
