@@ -36,5 +36,4 @@ node {
         sh 'ssh -o StrictHostKeyChecking=no ec2-user@ec2-13-48-42-8.eu-north-1.compute.amazonaws.com "bash test.sh && sudo docker pull charbelay/jenkins-drop-php:latest && sudo docker run -d -p 8081:8080 --name testing_version charbelay/jenkins-drop-php:latest"'
         }
     }
-
 }
